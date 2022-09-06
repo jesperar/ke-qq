@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import axios from 'axios'
 import './App.css';
 
 function App() {
-  axios('/api/user').then(res => {
-    console.log(res);
-  })
+  useEffect(() => {
+    axios('/api/user').then(res => {
+      console.log(res);
+    })
+  }, [])
   return (
     <div className="App">
       <h1>aaaaaaa</h1>
