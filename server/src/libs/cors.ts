@@ -1,4 +1,4 @@
-import Koa from 'Koa'
+import Koa from 'koa';
 
 export function init (app: Koa) {
   // 服务器添加跨域头 
