@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import * as ModelBanner from './models/banner'
+import {BannerData} from '../../models/banner'
 import './App.css';
 
 function App() {
-  const [banners, setBanners] = useState<ModelBanner.BannerData[] | null>(null)
+  const [banners, setBanners] = useState<BannerData[] | null>(null)
 
   useEffect(() => {
     (async () => {
@@ -13,7 +14,7 @@ function App() {
       setBanners(banners)
     } )();
   }, [])
-  
+
   return (
     <div className="App">
       <h1>aaaaaaa</h1>

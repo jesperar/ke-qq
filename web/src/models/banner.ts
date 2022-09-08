@@ -1,11 +1,5 @@
 import axios from "axios";
-
-export interface BannerData {
-	ID: number;
-	img: string;
-	href: string;
-	sort: number;
-}
+import {BannerData} from '../../../models/banner'
 
 export async function getAllBanner(): Promise<BannerData[]> {
 	let { data } = await axios("/api/course/getAllBanner");
