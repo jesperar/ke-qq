@@ -1,16 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import * as ModelBanner from './models/banner'
-import {BannerData} from '../../models/banner'
 import './App.css';
 
 function App() {
-  const [banners, setBanners] = useState<BannerData[] | null>(null)
+  const [banners, setBanners] = useState<ModelBanner.BannerData[] | null>(null)
 
   useEffect(() => {
     (async () => {
       let banners = await ModelBanner.getAllBanner()
       console.log(banners);
-      
+
       setBanners(banners)
     } )();
   }, [])
@@ -21,7 +20,7 @@ function App() {
       <div>
         {
           banners?.map(b => {
-            return <p key={b.ID}>{b.href}</p>
+            return <p key={b.id}>{b.href}</p>
           })
         }
       </div>

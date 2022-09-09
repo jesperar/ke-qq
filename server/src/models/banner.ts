@@ -1,5 +1,5 @@
 import db from '../libs/database';
-import {BannerData} from '../../../models/banner'
+import {BannerData} from '@/models/banner'
 
 export async function getAllBanner(): Promise<BannerData[]> {
   let res = await db.query('SELECT * FROM banner_table');
