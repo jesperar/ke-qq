@@ -10,10 +10,5 @@ if (enableCors) corsInit(app)
 app.use(router)
 app.use(koaStatic(staticRoot))
 
-// import { getAllBanner } from './models/banner';
-
-// app.use(async ctx => {
-//   let banners = await getAllBanner();
-
-//   ctx.body = banners;
-// });
+import {getCategory} from './models/category'
+getCategory()
