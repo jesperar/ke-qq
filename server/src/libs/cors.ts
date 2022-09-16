@@ -1,19 +1,16 @@
 import Koa from 'koa';
 
-export function init (app: Koa) {
-  // 服务器添加跨域头 
+export function init(app: Koa) {
   app.use(async (ctx, next) => {
-    // cors头 cross-origin-resource-share
-    ctx.set('Access-Control-Allow-Origin', '*')
-    ctx.set('Access-Control-Allow-Methods', '*')
-    ctx.set('Access-Control-Allow-Headers', '*')
+    //CORS-Cross-Orign Resurce Share
+    ctx.set('Access-Control-Allow-Origin', '*');    //域
+    ctx.set('Access-Control-Allow-Methods', '*');   //方法
+    ctx.set('Access-Control-Allow-Headers', '*');   //头
 
-    if (ctx.method === 'OPTIONS') {
-      ctx.body = 'OK'
+    if (ctx.method == 'OPTIONS') {
+      ctx.body = 'OK';
     } else {
-      await next()
+      await next();
     }
-  })
+  });
 }
-
-export const enableCors = true

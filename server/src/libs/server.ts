@@ -1,5 +1,5 @@
 import Koa from 'koa';
-import { serverPort } from '../config/app';
+import { serverPort } from '~/config/app';
 
 const app = new Koa();
 

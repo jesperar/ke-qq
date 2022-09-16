@@ -1,10 +1,11 @@
-import Router from '@koa/router'
-import apiRouter from './api/api'
-import renderRouter from './render/render'
+import Router from '@koa/router';
 
-let router  = new Router()
+import apiRouter from './api/api';
+import renderRouter from './render/render';
 
-router.use(apiRouter)
-router.use(renderRouter)
+let router = new Router();
 
-export default router.routes()
+router.use(apiRouter);
+router.use(renderRouter);
+
+export default router.routes();

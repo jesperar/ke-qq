@@ -1,13 +1,15 @@
-import axios from "../libs/axios";
+import axios from '../libs/axios';
+
 export interface BannerData {
-	id: number;
-	img: string;
-	href: string;
-	sort: number;
+  ID: number;
+  img: string;
+  href: string;
+  sort: number;
 }
 
-export async function getAllBanner(): Promise<BannerData[]> {
-	let { data } = await axios("/course/getAllBanner");
 
-	return data;
+export async function getAllBanner(): Promise<BannerData[]> {
+  let { data } = await axios('/course/banners');
+
+  return data;
 }

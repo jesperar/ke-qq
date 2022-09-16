@@ -7,7 +7,7 @@ module.exports={
     path: path.resolve(__dirname, 'build'),
     filename: 'server.js',
   },
-
+  
   target: 'node',
   externals: [
     webpackNodeExternals(),
@@ -21,7 +21,7 @@ module.exports={
       },
       {
         test: /\.css$/,
-        use: ['css-loader']
+        use: ['css-loader'],
       },
       {
         test: /\.(jpg|png|svg|gif)$/,

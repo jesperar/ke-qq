@@ -1,3 +1,5 @@
+import React from 'react';
+
 import '../assets/less/login.less';
 
 export default function Login() {

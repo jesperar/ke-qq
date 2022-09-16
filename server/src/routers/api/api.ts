@@ -1,11 +1,20 @@
-import Router from '@koa/router'
-import user from './user/user'
-import course from './course/course'
+import Router from '@koa/router';
 
-const router = new Router()
-router.prefix('/api')
+import courseRouter from './course/course';
+import userRouter from './user/user';
+import siteRouter from './site/site';
 
-router.use(user)
-router.use(course)
+let router = new Router();
 
-export default router.routes()
+router.prefix('/api');
+
+router.use(courseRouter);
+router.use(userRouter);
+router.use(siteRouter);
+
+export default router.routes();
+
+// export function init(router: Router) {
+//   router.use(courseRouter);
+//   router.use(userRouter);
+// }

@@ -1,14 +1,12 @@
 import app from './libs/server';
-import router from './routers/routers'
-import koaStatic from 'koa-static'
-import {staticRoot} from './config/app'
-import {init as corsInit, enableCors} from './libs/cors'
+import { init as corsInit } from '~/libs/cors';
+import router from './routers/routers';
 
-// cors
-if (enableCors) corsInit(app)
+import koaStatic from 'koa-static';
+import { staticRoot, enableCors } from '~/config/app';
 
-app.use(router)
-app.use(koaStatic(staticRoot))
+//cors
+if (enableCors) corsInit(app);
 
-import {getCategory} from './models/category'
-getCategory()
+app.use(router);
+app.use(koaStatic(staticRoot));
