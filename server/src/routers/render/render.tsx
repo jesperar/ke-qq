@@ -6,7 +6,7 @@ import { staticRoot } from '~/config/app';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
-import App from '@/App';
+import Home from '@/views/Home';
 
 import { getCategory } from '~/models/category';
 
@@ -19,8 +19,11 @@ if (process.env.NODE_ENV == 'production') {
 
   router.get('/', async ctx => {
     let categories = await getCategory();
+    const appData = {
+      categories
+    }
 
-    let str = ReactDOMServer.renderToString(<App categories={categories} />);
+    let str = ReactDOMServer.renderToString(<Home appData={appData} />);
     ctx.body = index.replace(
       '<div id="root"></div>',
       `

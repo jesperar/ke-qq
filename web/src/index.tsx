@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Home from './views/Home';
 import reportWebVitals from './reportWebVitals';
 
 import './assets/less/base.less';
@@ -18,7 +18,7 @@ import { isDev } from './config/app';
 let render = isDev ? ReactDOM.render : ReactDOM.hydrate;
 
 render(
-  <App categories={(window as any).categories} />,
+  <Home />,
   document.getElementById('root')
 );
 

@@ -1,11 +1,22 @@
-import React from 'react';
-import { CategoryData } from '../../models/category';
-
+import React, {useState, useEffect} from 'react';
+import { CategoryData, getCategory } from '../../models/category';
+import {appData} from '../../models/app'
 interface Props {
-  catetories: CategoryData[];
+  
 }
 
 export default function Category(props: Props) {
+  const [catetories, setCatetories] = useState<CategoryData[]>(
+    appData.categories || (window as any).catetories
+  );
+  useEffect(() => {
+    if (!catetories) {
+      getCategory().then(arr => {
+        setCatetories(arr);   //????
+      });
+    }
+  }, [catetories]);
+
   return (
     <div className="category">
       <div className="title-container">
@@ -13,8 +24,9 @@ export default function Category(props: Props) {
         <span>分类</span>
       </div>
       <div className="list-container">
-        <ul className="list">
-          {props.catetories.map(category => (
+        {
+          catetories ? (<ul className="list">
+          {catetories.map(category => (
             <li key={category.ID}>
               <div className="content">
                 <div className="title">{category.title}</div>
@@ -50,7 +62,9 @@ export default function Category(props: Props) {
               </div>
             </li>
           ))}
-        </ul>
+        </ul>) : ''
+        }
+        
       </div>
     </div>
   );
