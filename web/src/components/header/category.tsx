@@ -6,8 +6,8 @@ interface Props {
 }
 
 export default function Category(props: Props) {
-  const [catetories, setCatetories] = useState<CategoryData[]>(
-    appData.categories || (window as any).catetories
+  const [catetories, setCatetories] = useState<CategoryData[] | undefined>(
+    appData?.categories
   );
   useEffect(() => {
     if (!catetories) {

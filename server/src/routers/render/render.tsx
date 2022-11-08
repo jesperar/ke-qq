@@ -9,6 +9,8 @@ import ReactDOMServer from 'react-dom/server';
 import Home from '@/views/Home';
 
 import { getCategory } from '~/models/category';
+import { getSuggest } from '~/models/search';
+import { AppData } from '@/models/app';
 
 let router = new Router();
 
@@ -19,8 +21,11 @@ if (process.env.NODE_ENV == 'production') {
 
   router.get('/', async ctx => {
     let categories = await getCategory();
-    const appData = {
-      categories
+    let hotKeywords = await getSuggest('');
+
+    const appData:AppData = {
+      categories,
+      hotKeywords
     }
 
     let str = ReactDOMServer.renderToString(<Home appData={appData} />);
@@ -28,7 +33,7 @@ if (process.env.NODE_ENV == 'production') {
       '<div id="root"></div>',
       `
       <script>
-      window.categories=${JSON.stringify(categories)};
+      window.appData=${JSON.stringify(appData)};
       </script>
       <div id="root">${str}</div>
       `

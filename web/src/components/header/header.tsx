@@ -13,7 +13,7 @@ export default function Header(props: Props) {
     <div className="g-header">
       <div className="page">
         <div className="left">
-          <Logo />
+          {/* <Logo /> */}
           <Category />
           <Searchbar />
         </div>
